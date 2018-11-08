@@ -3,7 +3,7 @@ import org.apache.commons.mail.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class MailTest {
+public class MailManager {
 
     // to solve issue org.apache.commons.mail.EmailException: Sending the email to the following server failed : smtp.gmail.com:465
     // https://myaccount.google.com/lesssecureapps

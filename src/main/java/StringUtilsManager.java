@@ -1,6 +1,6 @@
 import org.apache.commons.lang3.StringUtils;
 
-public class StringUtilsTest {
+public class StringUtilsManager {
     // The StringUtils class provides methods for null-safe operations on strings.
     public static boolean checkIfContainsAorB(String text) {
         return StringUtils.containsAny(text, 'A', 'B');

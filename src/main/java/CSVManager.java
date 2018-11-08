@@ -12,7 +12,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CSVTest {
+public class CSVManager {
 
     public static void readCSV() {
         // Path może być niedostępny dla danej wersji Javy: File -> Project Structure -> Project Settings -> Modules -> "Your Module Name" -> Sources -> Language Level

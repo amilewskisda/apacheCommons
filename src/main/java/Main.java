@@ -5,22 +5,22 @@ public class Main {
 
     public static void main(String[] args) {
         testStringUtils();
-        CSVTest.writeCSV();
-        CSVTest.readCSV();
-        MailTest.sendEmail();
+        CSVManager.writeCSV();
+        CSVManager.readCSV();
+        MailManager.sendEmail();
     }
 
     private static void testStringUtils() {
-        boolean containsAorB = StringUtilsTest.checkIfContainsAorB(SDA_TEXT);
+        boolean containsAorB = StringUtilsManager.checkIfContainsAorB(SDA_TEXT);
         System.out.println("Text contains A or B - " + containsAorB);
 
-        boolean sentenceContainsTextIgnoreCase = StringUtilsTest.checkIfSentenceContainsTextIgnoreCase(BECOME_PROGRAMMER_TEXT);
+        boolean sentenceContainsTextIgnoreCase = StringUtilsManager.checkIfSentenceContainsTextIgnoreCase(BECOME_PROGRAMMER_TEXT);
         System.out.println("Sentence contains text ignore case - " + sentenceContainsTextIgnoreCase);
 
-        int numberOfAInText = StringUtilsTest.countLettersInText(SDA_TEXT, 'a');
+        int numberOfAInText = StringUtilsManager.countLettersInText(SDA_TEXT, 'a');
         System.out.println("There is " + numberOfAInText + " 'a' letters in sentence " + SDA_TEXT);
 
-        String diff = StringUtilsTest.getDifference(SDA_TEXT, SOFTWARE_DEVELOPER_TEXT);
+        String diff = StringUtilsManager.getDifference(SDA_TEXT, SOFTWARE_DEVELOPER_TEXT);
         System.out.println("Difference: " + diff);
     }
 }
