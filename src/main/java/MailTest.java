@@ -1,6 +1,7 @@
-import org.apache.commons.mail.DefaultAuthenticator;
-import org.apache.commons.mail.Email;
-import org.apache.commons.mail.SimpleEmail;
+import org.apache.commons.mail.*;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class MailTest {
 
@@ -15,19 +16,30 @@ public class MailTest {
 
     public static void sendEmail() {
         try {
-            Email email = new SimpleEmail();
+            EmailAttachment attachment = prepareAttachment();
+            MultiPartEmail email = new MultiPartEmail();
             email.setHostName(HOST);
             email.setSmtpPort(PORT);
-            email.setAuthenticator(new DefaultAuthenticator("userName", "password")); // userName type simply email
             email.setSSLOnConnect(SSL_FLAG);
-            email.setFrom("fromAddress");
-            email.setSubject("subject");
-            email.setMsg("message");
-            email.addTo("toAddress");
+            email.setAuthenticator(new DefaultAuthenticator("TYPE_USER_NAME", "TYPE_PASSWORD")); // userName type simply email
+            email.addTo("TYPE_MAIL_TO");
+            email.setFrom("TYPE_MAIL_FROM", "name");
+            email.setSubject("Picture for you");
+            email.setMsg("Hey! I Send to you SDA picture :)");
+            email.attach(attachment);
             email.send();
         } catch (Exception ex) {
             System.out.println("Unable to send email");
             System.out.println(ex);
         }
+    }
+
+    private static EmailAttachment prepareAttachment() throws MalformedURLException {
+        EmailAttachment attachment = new EmailAttachment();
+        attachment.setURL(new URL("https://www.newseria.pl/files/_uploaded/glownekonf_1073062514.png")); // google grafika -> otwórz grafikę w nowej karcie -> kopiuj link
+        attachment.setDisposition(EmailAttachment.ATTACHMENT);
+        attachment.setDescription("Logo here");
+        attachment.setName("SDA logo");
+        return attachment;
     }
 }
