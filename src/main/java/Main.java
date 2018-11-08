@@ -7,6 +7,7 @@ public class Main {
         testStringUtils();
         CSVTest.writeCSV();
         CSVTest.readCSV();
+        MailTest.sendEmail();
     }
 
     private static void testStringUtils() {
